@@ -75,7 +75,7 @@ public class LancamentoServiceImpl implements LancamentoService {
 
         }
 
-        if (lancamento.getMes() == null || lancamento.getMes() > 12) {
+        if (lancamento.getMes() == null || lancamento.getMes() < 1 || lancamento.getMes() > 12) {
             throw new RegraDeNegocioException("Informe um Mês válido.");
         }
 

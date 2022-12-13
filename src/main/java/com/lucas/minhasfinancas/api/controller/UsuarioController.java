@@ -3,6 +3,8 @@ package com.lucas.minhasfinancas.api.controller;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,7 @@ public class UsuarioController {
     private final LancamentoService lancamentoService;
 
     @PostMapping("/salvarusuario")
+    @Transactional
     public ResponseEntity<?> salvarUsuario(@RequestBody UsuarioDTO dto) {
 
         Usuario usuario = Usuario.builder().nome(dto.getNome()).email(dto.getEmail()).senha(dto.getSenha()).build();
